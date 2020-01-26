@@ -1,0 +1,166 @@
+{% extends "blog/base.html" %}
+
+{% block content %}
+  <meta http-equiv="refresh" content="30" />
+    <!-- Header -->
+    <h3>iPay Dashboard {{ today }}</h3>
+    <br>
+    <div class="header">
+      <div class="container-fluid">
+        <!--card stats-->
+        <div class="row">          
+          <!--Good traffic-->
+          <div class="col-sm-3 col-md-3">
+              <div class="card card-stats">
+                <!-- Card body -->
+                <div class="card-body">
+                    <div class="row">
+                      <!-- <div class="col-xl-4" id="container-goodtraffic"></div> -->
+                      <div class="col">
+                        <h4 class="card-title text-info mb-0">Traffic</h4>
+                        <!-- <span class="h4 font-weight-bold mb-0">70%</span>-->
+                        <div  id="container-goodtraffic" style="height: 150px; width: 150;"></div>
+                        <p class="mt-2 mb-0 text-sm">
+                          <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
+                          <span class="text-nowrap">Since last month</span>   
+                        </p>
+                      </div>
+                    </div>                    
+                </div>
+              </div>
+          </div>
+
+           <!--Bandwidth-->
+           <div class="col-sm-3 col-md-3">
+            <div class="card card-stats">
+              <!-- Card body -->
+              <div class="card-body">
+                  <div class="row">
+                    <!-- <div class="col-xl-4" id="container-goodtraffic"></div> -->
+                    <div class="col">
+                      <h4 class="card-title text-info mb-0">Bandwidth</h4>
+                      <!-- <span class="h4 font-weight-bold mb-0">70%</span>-->
+                      <div  id="container-bandwidth" style="height: 150px; width: 150;"></div>
+                      <p class="mt-2 mb-0 text-sm">
+                        <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
+                        <span class="text-nowrap">Since last month</span>   
+                      </p>
+                    </div>
+                  </div>                    
+                </div>
+              </div>
+            </div><!--end col-->
+
+          <!--Web Session-->
+          <div class="col-sm-3 col-md-3">
+            <div class="card card-stats">
+              <!-- Card body -->
+              <div class="card-body">
+                  <div class="row">
+                    <!-- <div class="col-xl-4" id="container-goodtraffic"></div> -->
+                    <div class="col">
+                      <h4 class="card-title text-info mb-0">Web Session</h4>
+                      <!-- <span class="h4 font-weight-bold mb-0">70%</span>-->
+                      <div  id="container-websession" style="height: 150px; width: 150;"></div>
+                      <p class="mt-2 mb-0 text-sm">
+                        <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
+                        <span class="text-nowrap">Since last month</span>   
+                      </p>
+                    </div>
+                  </div>                    
+              </div>
+            </div>
+          </div><!--end col-->
+
+          
+
+             <!--Transaction Response-->
+           <div class="col-sm-3 col-md-3">
+            <div class="card card-stats">
+              <!-- Card body -->
+              <div class="card-body">
+                  <div class="row">
+                    <!-- <div class="col-xl-4" id="container-goodtraffic"></div> -->
+                    <div class="col">
+                      <h5 class="card-title text-info mb-0">Transaction Response</h5>
+                      <!-- <span class="h4 font-weight-bold mb-0">70%</span>-->
+                      <div  id="container-transaction" style="height: 150px; width: 150;"></div>
+                      <p class="mt-2 mb-0 text-sm">
+                        <span class="text-success mr-2"><i class="fa fa-arrow-up"></i> 3.48%</span>
+                        <span class="text-nowrap">Since last month</span>   
+                      </p>
+                    </div>
+                  </div>                    
+                </div>
+              </div>
+            </div><!--end col-->
+
+        </div><!--end row0-->
+
+        <br>
+
+        <div class="row">          
+          <!--Bandwidthcompare-->
+          <div class="col-sm-6 col-md-6">
+              <div class="card card-stats">
+                <!-- Card body -->
+                <div class="card-body">
+                    <div class="row">                      
+                      <div class="col">                  
+                        
+                        <div  id="container-bandwidthcompare" style="height: 300px; width: 300;"></div>
+                        
+                      </div>
+                    </div>                    
+                </div>
+              </div>
+          </div><!--end col-->
+
+          <!--transaction summary-->
+          <div class="col-sm-6 col-md-6">
+            <div class="card card-stats">
+              <!-- Card body -->
+              <div class="card-body">
+                  <div class="row">                      
+                    <div class="col">                  
+                      
+                      <div  id="container-transactionsummary" style="height: 300px; width: 300;"></div>
+                      
+                    </div>
+                  </div>                    
+              </div>
+            </div>
+        </div><!--end col-->
+
+        </div><!--end row1-->
+        <br>
+      </div>
+    </div>
+
+     
+{% endblock content %}
+{% load static %}
+{% block javascript %}
+  <script src="http://code.highcharts.com/highcharts.js"></script>
+  <script src="http://code.highcharts.com/highcharts-more.js"></script>
+  <script src="http://code.highcharts.com/modules/solid-gauge.src.js"></script>
+  <script src="{% static 'js/goodtraffic.js' %}"></script>
+  <script src="{% static 'js/websession.js' %}"></script>
+  <script src="{% static 'js/bandwidth.js' %}"></script>
+  <script src="{% static 'js/transactionresponse.js' %}"></script>
+  <script src="{% static 'js/bandwidthcompare.js' %}"></script>
+  <script src="{% static 'js/transactionsummary.js' %}"></script>
+
+  <script>
+    goodtraffic(90);
+    websessionstatus(1000);
+    bandwidthstatus(25.5);
+    transactionresponsestatus(1.2);
+    bandwidthcompare(['00', '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '12'],
+    [7.0, 6.9, 9.5, 14.5, 18.4, 21.5, 25.2, 26.5, 23.3, 18.3, 13.9, 9.6],
+    [3.9, 4.2, 5.7, 8.5, 11.9, 15.2, 17.0, 16.6, 14.2, 10.3, 6.6, 4.8]);
+
+    transactionsummary(['00', '01', '02', '03', '04', '05', '06', '07', '08', '09', '10', '12'],
+    [0.5, 0.7, 0.8, 0.9, 0.3, 0.2, 0.7, 0.5, 0.4, 0.5, 0.6, 1.2])
+  </script>
+{% endblock javascript %}
